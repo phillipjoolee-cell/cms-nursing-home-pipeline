@@ -13,5 +13,5 @@ Why nursing homes: it's real, messy public healthcare data that CMS updates mont
 One row per facility (CCN) per snapshot month. Why snapshots: CMS releases new data every month. Each run loads that month as its own snapshot using an upsert on (CCN, snapshot_month), so rerunning the same month replaces only that month's rows instead of creating duplicates. Older months stay in the table, so I can compare a facility's results across months.
 
 ## Status
-- Done: ingest.py pages through the Provider Info API and saves each page as raw JSON.
-- Next: check that rows pulled match the API's total count, then load into Postgres (needs Docker, blocked until macOS update).
+- Done: ingest.py pages through the Provider Info API, saves each page as raw JSON, and checks rows pulled against the API's own count (14,686 rows, match).
+- Next: load the raw pages into Postgres running in Docker (Zoomcamp Module 1).
